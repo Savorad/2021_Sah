@@ -1,19 +1,22 @@
 package chess;
 
-public class ChessPiece {
-    private final PieceType type;
-    private final Team team;
+import java.util.ArrayList;
+import java.util.List;
 
-    //TODO Potencijalno dodati koordinate
+public abstract class ChessPiece {
+    private Team team;
+    private int x;
+    private int y;
 
-    public ChessPiece(PieceType type, Team team) {
-        this.type = type;
+    public ChessPiece(int x, int y, Team team) {
         this.team = team;
+        this.x = x;
+        this.y = y;
     }
 
-    public PieceType getType() {
-        return type;
-    }
+    //Vraca sva polja gde odabrana figura moze biti pomerena
+    public abstract List<int[]> possibleMoves();
+
 
     public Team getTeam() {
         return team;
