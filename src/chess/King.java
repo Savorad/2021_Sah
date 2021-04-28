@@ -1,5 +1,6 @@
 package chess;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class King extends ChessPiece{
@@ -9,6 +10,29 @@ public class King extends ChessPiece{
 
     @Override
     public List<int[]> possibleMoves() {
-        return null;
+        List<int[]> list = new ArrayList<>();
+
+        if(x < 7 && y < 7){
+            list.add(new int[]{x+1, y+1});
+            list.add(new int[]{x+1, y});
+            list.add(new int[]{x, y+1});
+        }
+
+        if(x > 0 && y > 0){
+            list.add(new int[]{x-1, y-1});
+            list.add(new int[]{x-1, y});
+            list.add(new int[]{x, y-1});
+        }
+
+        if(x > 0 && y < 7){
+            list.add(new int[]{x-1, y+1});
+        }
+
+        if(x < 7 && y > 0){
+            list.add(new int[]{x+1, y-1});
+        }
+
+
+        return list;
     }
 }
